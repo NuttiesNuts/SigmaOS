@@ -7,7 +7,7 @@
 
 
 <body>
-  <div class="window">
+  <div class="window" id="draggable">
     <h1>Welcome to SigmaOS</h1>
     <p>
       This is Sigma<abbr title="Operating System">OS</abbr>, a place to learn more about me <br>
@@ -23,28 +23,6 @@
     </p>
   </div>
 
-  <script>
-    var uhDateIdk = new Date();
-    document.querySelector("#time").innerHTML =
-      uhDateIdk.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit"
-      }) +
-      " " +
-      uhDateIdk.toLocaleDateString();
-
-    setInterval(function () {
-      const now = new Date();
-
-      document.querySelector("#time").innerHTML =
-        now.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit"
-        }) +
-        " " +
-        now.toLocaleDateString();
-    }, 1000);
-  </script>
+  <script src="script.js"></script>
 </body>
-
 </html>

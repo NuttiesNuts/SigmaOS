@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono">
+
+
+<body>
+  <div class="window">
+    <h1>Welcome to SigmaOS</h1>
+    <p>
+      This is Sigma<abbr title="Operating System">OS</abbr>, a place to learn more about me <br>
+      and what weird stuff I've been up to.
+    </p>
+  </div>
+
+  <div class="task-bar">
+    <img src="resources\assets\pizza_slice.png" alt="Pizza Logo" width="75" height="75">
+    <div class="spacer"></div>
+    <p class="time" id="time">
+
+    </p>
+  </div>
+
+  <script>
+    var uhDateIdk = new Date();
+    document.querySelector("#time").innerHTML =
+      uhDateIdk.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit"
+      }) +
+      " " +
+      uhDateIdk.toLocaleDateString();
+
+    setInterval(function () {
+      const now = new Date();
+
+      document.querySelector("#time").innerHTML =
+        now.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit"
+        }) +
+        " " +
+        now.toLocaleDateString();
+    }, 1000);
+  </script>
+</body>
+
+</html>

@@ -25,7 +25,7 @@ setInterval(function () {
 
 
 // Make the DIV element draggable:
-dragElement(document.getElementById("draggable"));
+dragElement(document.getElementById("welcome"));
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -43,8 +43,10 @@ function dragElement(element) {
   } else {
     // Step 5: If not present, assign the function directly to the draggable element's `onmousedown` event.
     // This allows you to drag the window by holding down anywhere on the window.
+    
     element.onmousedown = startDragging;
   }
+  
 
   // Step 6: Define the `startDragging` function to capture the initial mouse position and set up event listeners.
   function startDragging(e) {
@@ -78,3 +80,24 @@ function dragElement(element) {
     document.onmousemove = null;
   }
 }
+
+function closeWindow(element) {
+  element.style.display = "none"
+}
+
+function openWindow(element) {
+  element.style.display = "block"
+}
+
+var welcomeScreen = document.querySelector("#welcome")
+var welcomeScreenClose = document.querySelector("#close")
+var welcomeScreenOpen = document.querySelector("#welcomeApp")
+
+
+welcomeScreenClose.addEventListener("click", function() {
+  closeWindow(welcomeScreen);
+});
+
+welcomeScreenOpen.addEventListener("click", function() {
+  openWindow(welcomeScreen);
+});

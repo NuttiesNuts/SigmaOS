@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
     --text: #150f0f;
     --background: #f9f6f6;
@@ -159,12 +161,12 @@ button {
 }
 
 #desktopApps {
-    padding-top: 16px;
-    padding-left: 16px;
+    padding-top: 2em;
+    padding-left: 3em;
 }
 
 .app {
-    height: var(--app-size);
+    height: calc(var(--app-size) + 2.75em);
     width: var(--app-size);
     text-align: center;
 
@@ -172,16 +174,11 @@ button {
     flex-flow: column wrap;
     align-items: center;
     align-content: center;
-    justify-content: space-between;
-
-    background-color: var(--background);
-    border-radius: var(--corner-radius);
+    justify-content: center;
 
     padding: 1.25em;
 
     cursor: pointer;
-
-    transition-duration: 0.4s;
 }
 
 .appImage {
@@ -189,6 +186,11 @@ button {
     width: calc(var(--app-size) - 1.25em);
 }
 
-.app:hover {
-    background-color: var(--gray);
+.bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
 }

@@ -205,6 +205,11 @@ body {
   font-weight: 800;
   color: var(--text);
   background-color: var(--background);
+  text-decoration-color: var(--primary);
+}
+body::selection {
+  background-color: var(--secondary);
+  color: var(--background);
 }
 html, body {
   overflow: hidden;
@@ -271,7 +276,7 @@ button {
   right: 1em;
   display: flex;
   align-items: center;
-  padding: 0 1em;
+  padding: 0 2em;
   background-color: var(--secondary);
 }
 .task-bar .spacer {

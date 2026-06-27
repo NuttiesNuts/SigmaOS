@@ -25,7 +25,8 @@ setInterval(function () {
 
 
 // Make the DIV element draggable:
-dragElement(document.getElementById("welcome"));
+dragElement(document.getElementById("welcome"))
+dragElement(document.getElementById("aboutMe"))
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -81,13 +82,38 @@ function dragElement(element) {
   }
 }
 
+var biggestIndex = 1;
+
+function addWindowTapHandling(element) {
+  element.addEventListener("mousedown", () =>
+    handleWindowTap(element)
+  )
+}
+
+function handleWindowTap(element) {
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
+}
+
 function closeWindow(element) {
   element.style.display = "none"
 }
 
 function openWindow(element) {
-  element.style.display = "block"
+  element.style.display = "block";
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
 }
+
+function initializeWindow(elementName) {
+  var screen = document.querySelector("#" + elementName)
+  addWindowTapHandling(screen)
+  dragElement(document.getElementById(elementName))
+}
+
+initializeWindow("welcome")
+initializeWindow("aboutMe")
+
 
 var welcomeScreen = document.querySelector("#welcome")
 var welcomeScreenClose = document.querySelector("#close")
@@ -101,3 +127,20 @@ welcomeScreenClose.addEventListener("click", function() {
 welcomeScreenOpen.addEventListener("click", function() {
   openWindow(welcomeScreen);
 });
+
+var aboutMeScreen = document.querySelector("#aboutMe")
+var aboutMeScreenClose = document.querySelector("#aclose")
+var aboutMeScreenOpen = document.querySelector("#aboutMeApp")
+aboutMeScreen.style.display = "none"; //start closed
+
+aboutMeScreenClose.addEventListener("click", function() {
+  closeWindow(aboutMeScreen);
+});
+
+aboutMeScreenOpen.addEventListener("click", function() {
+  openWindow(aboutMeScreen);
+});
+
+document.querySelector("#aboutMeButton").addEventListener("click", function() {
+  openWindow(aboutMeScreen);
+})

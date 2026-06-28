@@ -75,6 +75,16 @@ a:hover {
     padding-top: 0.5em;
 }
 
+#aboutMeContent {
+    display: flex;
+    flex-direction: row-reverse;
+
+    text-wrap: balance;
+    gap: 2rem;
+
+    width: 45em;
+}
+
 .handle {
     background-color: var(--accent);
     box-shadow: inset 0px 0px 0px var(--border-width) var(--text);
@@ -114,7 +124,7 @@ button {
 
     min-width: 20em;
     min-height: 10em;
-
+    max-width: 90wv;
 
     justify-content: center;
 

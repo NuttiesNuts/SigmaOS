@@ -113,6 +113,8 @@ function initializeApp(elementName) {
   var screen = document.querySelector("#" + elementName)
   var screenClose = document.querySelector("#" + elementName + "Close")
   var screenOpen = document.querySelector("#" + elementName + "App")
+  addWindowTapHandling(screen)
+  dragElement(screen)
 
   screenOpen.addEventListener("click", function () {
     openWindow(screen);
@@ -122,15 +124,8 @@ function initializeApp(elementName) {
   });
 }
 
-function initializeWindow(elementName) {
-  var screen = document.querySelector("#" + elementName)
-  addWindowTapHandling(screen)
-  dragElement(screen)
-}
-
 for(let i = 0; i < apps.length; i++){
   initializeApp(apps[i])
-  initializeWindow(apps[i])
 }
 
 document.querySelector("#aboutMeButton").addEventListener("click", function () {

@@ -11,9 +11,9 @@
   <div class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
 
   <div class="window" id="welcome">
-    <div class="handle" id="welcomeheader">
+    <div class="handle" id="welcomeHeader">
       <h2>Welcome.txt</h2>
-      <button class="icon" id="close"><img src="resources\assets\icons\x.svg" alt="Close"></button>
+      <button class="icon" id="welcomeClose"><img src="resources\assets\icons\x.svg" alt="Close"></button>
     </div>
     <div class="content">
       <h1>Welcome to SigmaOS</h1>
@@ -29,7 +29,7 @@
   <div class="window" id="aboutMe">
     <div class="handle" id="aboutMeHeader">
       <h2>AboutMe.txt</h2>
-      <button class="icon" id="aclose"><img src="resources\assets\icons\x.svg" alt="Close"></button>
+      <button class="icon" id="aboutMeClose"><img src="resources\assets\icons\x.svg" alt="Close"></button>
     </div>
     <div class="content">
       <h1>Hi</h1>
@@ -38,12 +38,25 @@
         I illustrate, draw pixel art, make games, develop Minecraft mods and play bass in my spare time. <br>
         I do a bunch of stuff honestly and I'm always busy but somehow <a href="https://www.youtube.com/watch?v=brNGDA5R048">League Of Legends</a> always slips in to steal my free time.
       </p>
+    </div>
+  </div>
 
-      <button class="button">Idk</button>
+  <div class="window" id="files">
+    <div class="handle" id="filesHeader">
+      <h2>File Explorer</h2>
+      <button class="icon" id="filesClose"><img src="resources\assets\icons\x.svg" alt="Close"></button>
+    </div>
+    <div class="content">
+      
+      
     </div>
   </div>
 
   <div id="desktopApps">
+    <div class="app" id="filesApp">
+      <img class="appImage" src="resources/assets/icons/folder.svg">
+      <p>Files</p>
+    </div>
     <div class="app" id="welcomeApp">
       <img class="appImage" src="resources/assets/icons/notes.svg">
       <p>Welcome.txt</p>

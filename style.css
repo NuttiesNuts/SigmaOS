@@ -82,7 +82,7 @@ a:hover {
     border-top-left-radius: var(--corner-radius);
     border-top-right-radius: var(--corner-radius);
 
-    padding: 1em 2rem;
+    padding: 0.75em 2rem;
 
     cursor: grab;
     touch-action: none;
@@ -90,6 +90,8 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    font-size: larger;
 }
 
 .icon {
@@ -110,12 +112,17 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
 
+    min-width: 20em;
+    min-height: 10em;
+
 
     justify-content: center;
 
     width: max-content;
     z-index: 1;
     padding-bottom: 1em;
+
+    display: none;
 }
 
 .window,

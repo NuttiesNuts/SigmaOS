@@ -3,31 +3,27 @@
 var uhDateIdk = new Date();
 
 document.querySelector("#time").innerHTML =
-    uhDateIdk.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit"
-    }) +
-    " " +
-    uhDateIdk.toLocaleDateString();
+  uhDateIdk.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit"
+  }) +
+  " " +
+  uhDateIdk.toLocaleDateString();
 
 setInterval(function () {
-    const now = new Date();
+  const now = new Date();
 
-    document.querySelector("#time").innerHTML =
-        now.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit"
-        }) +
-        " " +
-        now.toLocaleDateString();
+  document.querySelector("#time").innerHTML =
+    now.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit"
+    }) +
+    " " +
+    now.toLocaleDateString();
 }, 1000);
 
 
-
 // Make the DIV element draggable:
-dragElement(document.getElementById("welcome"))
-dragElement(document.getElementById("aboutMe"))
-
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
   // Step 2: Set up variables to keep track of the element's position.
@@ -37,17 +33,17 @@ function dragElement(element) {
   var currentY = 0;
 
   // Step 3: Check if there is a special header element associated with the draggable element.
-  if (document.getElementById(element.id + "header")) {
+  if (document.getElementById(element.id + "Header")) {
     // Step 4: If present, assign the `dragMouseDown` function to the header's `onmousedown` event.
     // This allows you to drag the window around by its header.
-    document.getElementById(element.id + "header").onmousedown = startDragging;
+    document.getElementById(element.id + "Header").onmousedown = startDragging;
   } else {
     // Step 5: If not present, assign the function directly to the draggable element's `onmousedown` event.
     // This allows you to drag the window by holding down anywhere on the window.
-    
+
     element.onmousedown = startDragging;
   }
-  
+
 
   // Step 6: Define the `startDragging` function to capture the initial mouse position and set up event listeners.
   function startDragging(e) {
@@ -105,42 +101,38 @@ function openWindow(element) {
   element.style.zIndex = biggestIndex;
 }
 
+var welcomeScreen = document.querySelector("#welcome")
+
+welcomeScreen.style.display = "block";
+welcomeScreen.style.left = "75%";
+welcomeScreen.style.top = "25%";
+
+var apps = ["welcome", "aboutMe"]
+
+function initializeApp(elementName) {
+  var screen = document.querySelector("#" + elementName)
+  var screenClose = document.querySelector("#" + elementName + "Close")
+  var screenOpen = document.querySelector("#" + elementName + "App")
+
+  screenOpen.addEventListener("click", function () {
+    openWindow(screen);
+  });
+  screenClose.addEventListener("click", function () {
+    closeWindow(screen);
+  });
+}
+
 function initializeWindow(elementName) {
   var screen = document.querySelector("#" + elementName)
   addWindowTapHandling(screen)
-  dragElement(document.getElementById(elementName))
+  dragElement(screen)
 }
 
-initializeWindow("welcome")
-initializeWindow("aboutMe")
+for(let i = 0; i < apps.length; i++){
+  initializeApp(apps[i])
+  initializeWindow(apps[i])
+}
 
-
-var welcomeScreen = document.querySelector("#welcome")
-var welcomeScreenClose = document.querySelector("#close")
-var welcomeScreenOpen = document.querySelector("#welcomeApp")
-
-
-welcomeScreenClose.addEventListener("click", function() {
-  closeWindow(welcomeScreen);
+document.querySelector("#aboutMeButton").addEventListener("click", function () {
+  openWindow(document.querySelector("#aboutMe"));
 });
-
-welcomeScreenOpen.addEventListener("click", function() {
-  openWindow(welcomeScreen);
-});
-
-var aboutMeScreen = document.querySelector("#aboutMe")
-var aboutMeScreenClose = document.querySelector("#aclose")
-var aboutMeScreenOpen = document.querySelector("#aboutMeApp")
-aboutMeScreen.style.display = "none"; //start closed
-
-aboutMeScreenClose.addEventListener("click", function() {
-  closeWindow(aboutMeScreen);
-});
-
-aboutMeScreenOpen.addEventListener("click", function() {
-  openWindow(aboutMeScreen);
-});
-
-document.querySelector("#aboutMeButton").addEventListener("click", function() {
-  openWindow(aboutMeScreen);
-})

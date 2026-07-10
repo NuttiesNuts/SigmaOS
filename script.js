@@ -93,17 +93,22 @@ function handleWindowTap(element) {
 
 function closeWindow(element) {
   element.style.display = "none"
+  element.classList.remove("open");
 }
 
 function openWindow(element) {
   element.style.display = "block";
   biggestIndex++;  // Increment biggestIndex by 1
   element.style.zIndex = biggestIndex;
+
+  requestAnimationFrame(() => {
+    element.classList.add("open");
+  });
 }
 
 var welcomeScreen = document.querySelector("#welcome")
 
-welcomeScreen.style.display = "block";
+openWindow(welcomeScreen)
 welcomeScreen.style.left = "75%";
 welcomeScreen.style.top = "25%";
 
@@ -124,7 +129,7 @@ function initializeApp(elementName) {
   });
 }
 
-for(let i = 0; i < apps.length; i++){
+for (let i = 0; i < apps.length; i++) {
   initializeApp(apps[i])
 }
 

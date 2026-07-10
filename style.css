@@ -135,6 +135,13 @@ button {
     padding-bottom: 1em;
 
     display: none;
+
+    opacity: 0;
+    transition: opacity 180ms ease, transform 200ms ease;
+}
+
+.window.open {
+    opacity: 1;
 }
 
 .window,

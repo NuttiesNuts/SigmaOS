@@ -5,3 +5,5 @@ A cool personal WebOS to showcase stuff I do and what I'm working on aswell as o
 
 Features:
 - About Me page
+- Gallery
+- Social Media links
